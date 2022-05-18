@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.inhatc.mapper.Department201844035Mapper">
+
+	<insert id="inserDepartment">
+		insert into tbl_201844035_department (department_id, department_name, count, yunhan) values
+		( #{department_id}, #{department_name}, #{count}, #{yunhan} )
+	</insert>
+	
+	<select id="selectDepartment" resultType="com.inhatc.domain.DepartmentVO">
+		select * from tbl_201844035_department where department_id= #{department_id}
+	</select>
+	
+	<update id="update">
+		update tbl_201844035_department set department_name = #{department_name}, count = #{count}, yunhan = #{yunhan}
+		where department_id = #{department_id}
+	</update>
+	
+	<select id="selectAll" resultType="com.inhatc.domain.DepartmentVO">
+		<![CDATA[
+			select department_name, count, yunhan 
+			from tbl_201844035_department
+		]]>
+	</select>
+	
+	<delete id="delete">
+		delete from tbl_201844035_department where department_id = #{department_id}
+	</delete>
+	
+	<select id="listCount" resultType="int">
+		select count(*) from tbl_201844035_department
+	</select>
+</mapper>
